@@ -21,18 +21,18 @@ import { MongoServerError } from "mongodb";
                 useFactory: ()=>{
                     const schema = UserSchema
                     schema.pre("save",function (next){
-                        let groupsMap = new Map();
+                        // let groupsMap = new Map();
 
-                        this.groups.forEach((group)=>{
-                            if(groupsMap.has(group.name)) return next(new MongoServerError({message:"Duplication de nom de groupe"}));
-                            groupsMap.set(group.name,true);
-                        })
+                        // this.groups.forEach((group)=>{
+                        //     if(groupsMap.has(group.name)) return next(new MongoServerError({message:"Duplication de nom de groupe"}));
+                        //     groupsMap.set(group.name,true);
+                        // })
 
-                        let contactsMap = new Map();
-                        this.contacts.forEach((contact)=>{
-                            if(contactsMap.has(contact.phoneNumber)) return next(new MongoServerError({message:"Duplication de téléphone de contact"}));
-                            contactsMap.set(contact.phoneNumber,1);
-                        })
+                        // let contactsMap = new Map();
+                        // this.contacts.forEach((contact)=>{
+                        //     if(contactsMap.has(contact.phoneNumber)) return next(new MongoServerError({message:"Duplication de téléphone de contact"}));
+                        //     contactsMap.set(contact.phoneNumber,1);
+                        // })
                         next();
                     })
                    
